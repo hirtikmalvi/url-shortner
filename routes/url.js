@@ -1,0 +1,20 @@
+const express = require("express");
+const router = express.Router();
+const {
+  handleGenerateNewShortUrl,
+  handleGetAnalytics,
+} = require("../controllers/url");
+
+router.post("/", handleGenerateNewShortUrl);
+router.get("/analytics/:shortId", handleGetAnalytics);
+
+module.exports = router;
+
+// <ol>
+// <% urls.forEach(url => { %>
+// <li>
+//   <%= url.shortId %> - <%= url.redirectURL %> - <%=
+//   url.visitHistory.length %>
+// </li>
+// <% }) %>
+// </ol>
